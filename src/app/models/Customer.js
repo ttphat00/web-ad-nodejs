@@ -8,7 +8,7 @@ const Customer = new Schema(
         email: { type: String, unique: true },
         password: { type: String },
         phone: { type: String, default: null },
-        address: { type: String, default: null },
+        address: { type: String, default: '' },
         avatar: {
             type: String,
             default:
@@ -16,6 +16,7 @@ const Customer = new Schema(
         },
         gender: { type: String, default: null },
         accountBalance: { type: Number, default: 100000 },
+        createdAt: { type: Date },
     },
 );
 

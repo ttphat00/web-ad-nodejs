@@ -10,6 +10,7 @@ class AuthController {
         if (customer) res.status(409).json('Tài khoản đã tồn tại.');
         else {
             const name = req.body.name;
+            const createdAt = req.body.createdAt;
             const hashPassword = bcrypt.hashSync(
                 req.body.password,
                 SALT_ROUNDS,
@@ -18,6 +19,7 @@ class AuthController {
                 name,
                 email,
                 password: hashPassword,
+                createdAt,
             };
             const createCustomer = await customerController.createCustomer(newCustomer);
             if (!createCustomer) {
