@@ -15,7 +15,7 @@ const Customer = new Schema(
                 'https://res.cloudinary.com/petshop347/image/upload/v1647709187/icon_uyz033.png',
         },
         gender: { type: String, default: null },
-        accountBalance: { type: Number, default: 100000 },
+        accountBalance: { type: Number, default: 1000000 },
         createdAt: { type: Date },
     },
 );
