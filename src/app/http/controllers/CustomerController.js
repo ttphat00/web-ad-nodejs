@@ -97,6 +97,15 @@ class CustomerController {
     //     }
     // }
 
+    async update(req, res, next) {
+        try {
+            await Customer.updateOne({ _id: req.params.id }, req.body);
+            return res.json('Updated successfully!');
+        } catch (error) {
+            return next(error);
+        }
+    }
+
     async updateInfo(req, res, next) {
         try {
             await Customer.updateOne({ _id: req.customer._id }, req.body);

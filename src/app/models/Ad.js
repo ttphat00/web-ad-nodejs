@@ -14,6 +14,7 @@ const Ad = new Schema(
         createdAt: { type: Date },
         expireDate: { type: Date },
         duration: { type: Number },
+        numberOfExtensionDays: { type: Number, default: 0 },
         price: { type: String },
         display: { type: Boolean, default: false },
         idCity: { type: String },

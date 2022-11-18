@@ -18,6 +18,7 @@ router.put(
     fileUploader.array('file'),
     adController.addImages,
 );
+router.put('/extend/:id', adController.extend);
 router.put('/:id', fileUploader.array('file'), adController.update);
 
 //get products by id_category

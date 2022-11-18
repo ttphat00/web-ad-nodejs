@@ -85,6 +85,35 @@ class OrderController {
         }
     }
 
+    async storeAdminOrder(req, res, next) {
+        try {
+            let newOrder = new Order({
+                ...req.body,
+            });
+
+            if (!req.body.ads) {
+                let ad = {
+                    idAd: req.body.idAd,
+                    cost: req.body.cost,
+                };
+                newOrder.adDetails.push(ad);
+            } else {
+                for (let i = 0; i < req.body.ads.length; i++) {
+                    let ad = {
+                        idAd: req.body.ads[i].idAd,
+                        cost: req.body.ads[i].cost,
+                    };
+                    newOrder.adDetails.push(ad);
+                }
+            }
+
+            await newOrder.save();
+            return res.json(newOrder);
+        } catch (error) {
+            return next(error);
+        }
+    }
+
     async update(req, res, next) {
         try {
             await Order.updateOne(

@@ -6,6 +6,7 @@ const authMiddleware = require('../../app/http/middleware/auth.middlewares');
 
 const isAuth = authMiddleware.isAuth;
 
+router.post('/admin-order', orderController.storeAdminOrder);
 router.post('/', isAuth, orderController.store);
 
 router.put('/:id', orderController.update);

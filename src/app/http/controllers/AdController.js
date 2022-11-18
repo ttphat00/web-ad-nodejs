@@ -137,6 +137,29 @@ class AdController {
             return next(error);
         }
     }
+
+    async extend(req, res, next) {
+        try {
+            await Ad.updateOne(
+                { _id: req.params.id },
+                {
+                    ...req.body,
+                },
+            );
+
+            // let ad = await Ad.findById(req.params.id);
+
+            // ad.display = req.body.display || ad.display;
+            // ad.expireDate = req.body.expireDate || ad.expireDate;
+            // ad.duration = req.body.duration || ad.duration;
+
+            // await ad.save();
+
+            return res.json('Extended successfully!');
+        } catch (error) {
+            return next(error);
+        }
+    }
 }
 
 module.exports = new AdController();

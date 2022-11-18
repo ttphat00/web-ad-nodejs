@@ -21,6 +21,7 @@ router.put(
     customerController.updateAvatar,
 );
 router.put('/delete-my-avatar', isAuth, customerController.deleteAvatar);
+router.put('/update/:id', customerController.update);
 // router.put('/reset-password/:id', customerController.updatePassword);
 // router.put('/:id', customerController.updatePermission);
 
