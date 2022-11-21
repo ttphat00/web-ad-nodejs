@@ -4,6 +4,7 @@ const categoryRouter = require('./categories');
 const adRouter = require('./ads');
 const cityRouter = require('./cities');
 const orderRouter = require('./orders');
+const savedAdRouter = require('./savedads');
 
 function route(app) {
     //api users
@@ -15,6 +16,9 @@ function route(app) {
 
     //api ads
     app.use('/api/ads', adRouter);
+
+    //api saved ads
+    app.use('/api/saved-ads', savedAdRouter);
 
     //api cities
     app.use('/api/cities', cityRouter);
