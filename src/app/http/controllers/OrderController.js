@@ -127,6 +127,23 @@ class OrderController {
             return next(error);
         }
     }
+
+    async deleteMany(req, res, next) {
+        try {
+            for(let i=0; i<req.body.ads.length; i++){
+                await Order.updateOne(
+                    { _id: req.body.ads[i].idOrder },
+                    {
+                        status: 'Tin đã xóa',
+                    },
+                );
+            }
+            
+            return res.json('Updated successfully!');
+        } catch (error) {
+            return next(error);
+        }
+    }
 }
 
 module.exports = new OrderController();

@@ -9,6 +9,7 @@ const isAuth = authMiddleware.isAuth;
 router.post('/admin-order', orderController.storeAdminOrder);
 router.post('/', isAuth, orderController.store);
 
+router.put('/delete-many', orderController.deleteMany);
 router.put('/:id', orderController.update);
 
 router.delete('/:id', orderController.destroy);

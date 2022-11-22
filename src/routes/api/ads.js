@@ -19,6 +19,7 @@ router.put(
     adController.addImages,
 );
 router.put('/extend/:id', adController.extend);
+router.put('/delete-many', adController.deleteMany);
 router.put('/:id', fileUploader.array('file'), adController.update);
 
 //get products by id_category

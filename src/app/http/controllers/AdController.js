@@ -160,6 +160,23 @@ class AdController {
             return next(error);
         }
     }
+
+    async deleteMany(req, res, next) {
+        try {
+            for(let i=0; i<req.body.ads.length; i++){
+                await Ad.updateOne(
+                    { _id: req.body.ads[i].id },
+                    {
+                        display: false,
+                    },
+                );
+            }
+
+            return res.json('Deleted successfully!');
+        } catch (error) {
+            return next(error);
+        }
+    }
 }
 
 module.exports = new AdController();
