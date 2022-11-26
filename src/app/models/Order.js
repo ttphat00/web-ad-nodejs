@@ -12,7 +12,7 @@ const Order = new Schema(
         idCustomer: { type: String },
         orderDate: { type: Date },
         adDetails: { type: [adDetail] },
-        payment: { type: String, default: 'Mặc định' },
+        payment: { type: String, default: 'PayPal' },
         totalCost: { type: Number },
         approvalDate: { type: Date, default: null },
         status: { type: String, default: 'Đang chờ xác nhận' },
