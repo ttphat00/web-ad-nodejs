@@ -10,6 +10,7 @@ const adDetail = new Schema({
 const Order = new Schema(
     {
         idCustomer: { type: String },
+        idAdmin: { type: String, default: null },
         orderDate: { type: Date },
         adDetails: { type: [adDetail] },
         payment: { type: String, default: 'PayPal' },
